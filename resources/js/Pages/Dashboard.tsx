@@ -1,7 +1,12 @@
-import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
-import { Head } from '@inertiajs/react';
+import AuthenticatedLayout from "@/layouts/AuthenticatedLayout";
+import { Head } from "@inertiajs/react";
+import {useState} from "react";
 
 export default function Dashboard() {
+    const [counter, setCounter] = useState<number>(0);
+    const handleClick = ()=>{
+        setCounter(prevState => prevState+1)
+    }
     return (
         <AuthenticatedLayout
             header={
@@ -11,6 +16,10 @@ export default function Dashboard() {
             }
         >
             <Head title="Dashboard" />
+            <div>
+                <p>halo gais {counter}</p>
+                <button onClick={handleClick}>klik</button>
+            </div>
 
             <div className="py-12">
                 <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
